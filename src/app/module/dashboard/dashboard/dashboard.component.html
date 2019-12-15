@@ -1,11 +1,12 @@
-<div class="pump-line" >
+<div class="pump-line" [ngStyle]="{'top.px':fieldBottom.offsetTop+35, 'left.px': waterPump.offsetLeft + waterPump.width }" >
+    <app-pump-line></app-pump-line>
 </div>
 <div class="row">
     <div class="col">
         <div class="row gauge-list">
             <div class="col-3 text-center">
                 <p class="text-center mb-0 d-inline border-bottom border-danger rounded-bottom-lg main-gauge-title">
-                    POWER</p>
+                    POWER{{waterPump.offsetLeft}}</p>
                 <div class="gauge-container">
                     <mwl-gauge class="power" [max]="100" [value]="60" [animated]="true" [animationDuration]="1">
                     </mwl-gauge>
@@ -49,7 +50,7 @@
         </div>
         <div class="row pertilizer-unit">
             <div class="col-4 position-relative">
-                <img alt="pump" class="pump" src="/assets/pump_img.png" >
+                <img alt="pump" class="pump" #waterPump src="/assets/pump_img.png" >
                     <ul class="position-absolute water-pump-reading" >
                         <li>221 V</li>
                         <li>7.8 A</li>
@@ -162,9 +163,9 @@
                 <img class="weather-icon" alt="" src="/assets/weather_cloudy.png" />
             </div>
         </div>
-        <div class="row crop-filed-nav">
+        <div class="row crop-filed-nav" #fieldBottom>
             <div class="col">
-                <div class="row">
+                <div class="row"  >
                     <div class="col d-flex justify-content-center border border-primary  border-top-0 rounded-bottom-lg"
                         style="background-color: #b0855f;">
                         <img src="/assets/tree_root.png" alt="" class="align-self-start tree-bottom" />

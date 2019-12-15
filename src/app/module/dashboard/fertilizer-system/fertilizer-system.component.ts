@@ -65,10 +65,10 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
 
     this.outputPumpY = 0;
     this.outputPumpX = this.viewWidth / 2;
-    this.outputPumpHeight = 50;
+    this.outputPumpHeight = 30;
 
     this.fertTankWidth = this.viewWidth / 8;
-    this.fertTankHeight = 200;
+    this.fertTankHeight = 160;
 
     this.fertTankDistance = this.viewWidth / 8;;
 
@@ -78,11 +78,11 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
     this.fertMixtureStartY = this.outputPumpY + this.outputPumpHeight;
 
     this.fertMixtureWidth = 3.5 * (this.fertTankWidth + this.fertTankDistance);
-    this.fertMixtureHeight = 100;
+    this.fertMixtureHeight = 60;
 
     this.pumpLineWidth = this.fertMixtureHeight / 5;
 
-    this.fertMixtureTofertTankDistance = 50;
+    this.fertMixtureTofertTankDistance = 30;
     this.fertTankStartY = this.outputPumpY + this.outputPumpHeight + this.fertMixtureHeight + this.fertMixtureTofertTankDistance;
   }
 

@@ -96,7 +96,11 @@
 .crop-type {
   color: #F8774B;
 }
-
+.fert-unit-container {
+  width: 98%;
+  height: inherit;
+  bottom: 0;
+}
 mwl-gauge {
     flex: 1;
     display: block;

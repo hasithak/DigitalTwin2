@@ -49,8 +49,8 @@
             <div class="col-4">
                 flow
             </div>
-            <div class="col">
-                <app-fertilizer-system fertLevels="50,100,0,80" fertPumpStatuses="1,0,0,1"></app-fertilizer-system>
+            <div class="col position-relative">
+                    <app-fertilizer-system class="position-absolute fert-unit-container" fertLevels="50,100,0,80" fertPumpStatuses="1,0,0,1"></app-fertilizer-system>
             </div>
         </div>
         <div class="row pertilizer-data">
@@ -60,8 +60,9 @@
             <div class="col text-center">
                 <div>N</div>
                 <div class="fertilizer-data-gauge-container">
-                    <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0" [dialStartAngle]="-90"
-                        [dialEndAngle]="-90.001" [value]="60" [animated]="true" [animationDuration]="1">
+                    <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0"
+                        [dialStartAngle]="-90" [dialEndAngle]="-90.001" [value]="60" [animated]="true"
+                        [animationDuration]="1">
                     </mwl-gauge>
                 </div>
                 <div>
@@ -75,56 +76,56 @@
                 </div>
             </div>
             <div class="col text-center">
-                    <div>N</div>
-                    <div class="fertilizer-data-gauge-container">
-                        <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0" [value]="60" [animated]="true"
-                            [animationDuration]="1">
-                        </mwl-gauge>
-                    </div>
-                    <div>
-                        2.6
-                    </div>
-                    <div>
-                        800
-                    </div>
-                    <div>
-                        800
-                    </div>
+                <div>N</div>
+                <div class="fertilizer-data-gauge-container">
+                    <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0"
+                        [value]="60" [animated]="true" [animationDuration]="1">
+                    </mwl-gauge>
+                </div>
+                <div>
+                    2.6
+                </div>
+                <div>
+                    800
+                </div>
+                <div>
+                    800
+                </div>
             </div>
             <div class="col text-center">
-                    <div>N</div>
-                    <div class="fertilizer-data-gauge-container">
-                        <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0" [value]="60" [animated]="true"
-                            [animationDuration]="1">
-                        </mwl-gauge>
-                    </div>
-                    <div>
-                        2.6
-                    </div>
-                    <div>
-                        800
-                    </div>
-                    <div>
-                        800
-                    </div>
+                <div>N</div>
+                <div class="fertilizer-data-gauge-container">
+                    <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0"
+                        [value]="60" [animated]="true" [animationDuration]="1">
+                    </mwl-gauge>
+                </div>
+                <div>
+                    2.6
+                </div>
+                <div>
+                    800
+                </div>
+                <div>
+                    800
+                </div>
             </div>
             <div class="col  text-center">
-                    <div>N</div>
-                    <div class="fertilizer-data-gauge-container">
-                        <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0" [value]="60" [animated]="true"
-                            [animationDuration]="1">
-                        </mwl-gauge>
-                    </div>
-                    <div>
-                        2.6
-                    </div>
-                    <div>
-                        800
-                    </div>
-                    <div>
-                        800
-                    </div>
+                <div>N</div>
+                <div class="fertilizer-data-gauge-container">
+                    <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0"
+                        [value]="60" [animated]="true" [animationDuration]="1">
+                    </mwl-gauge>
                 </div>
+                <div>
+                    2.6
+                </div>
+                <div>
+                    800
+                </div>
+                <div>
+                    800
+                </div>
+            </div>
         </div>
     </div>
     <div class="col m-3">

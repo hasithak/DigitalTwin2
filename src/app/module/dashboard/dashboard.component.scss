@@ -1,0 +1,209 @@
+.filed-box {
+    position: relative;
+}
+.field-stats{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 2vmin;
+}
+.field-soil-stats {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 2vmin;
+}
+.weather-icon{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 15vmin;
+}
+.filed-progress {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    font-size: 2vmin;
+}
+
+.filed-progress ul {
+  padding-inline-start: 14px;
+}
+
+.gauge-list {
+    height: 30vh;
+}
+
+.pertilizer-unit {
+    height: 30vh;
+}
+
+.pertilizer-data{
+    height: 30vh;
+}
+
+.fertilizer-data-gauge-container{
+    height: 36%;
+    overflow: hidden;
+}
+
+.crop-filed{
+    height: 30vh;
+}
+
+.crop-filed-nav{
+    height: 30vh;
+}
+
+.prgress-charts{
+    height: 30vh;
+}
+
+.gauge-container {
+    height: 65%;
+}
+
+.main-gauge-title {
+    font-size: 3vmin;
+}
+
+.tree-top {
+  width: 41vmin;
+}
+
+.tree-bottom {
+  width: 41vmin;
+}
+.nav-previouse {
+  font-size: 6vmin;
+  color: #BE80FF;
+}
+
+.nav-next {
+  font-size: 6vmin;
+  color: #BE80FF;
+}
+
+.field-nav {
+  margin-top: 2vmin;
+}
+
+.plot-no{
+  font-size: 6vmin;
+  color: #F8774B;
+}
+
+.crop-type {
+  color: #F8774B;
+}
+
+mwl-gauge {
+    flex: 1;
+    display: block;
+    padding: 2px;
+    margin: 2px;
+    border-radius: 3px;
+  }
+  mwl-gauge > .gauge > .dial {
+    stroke: #334455;
+    stroke-width: 2;
+    fill: rgba(0,0,0,0);
+  }
+  mwl-gauge > .gauge > .value {
+    stroke: rgb(47, 227, 255);
+    stroke-width: 2;
+    fill: rgba(0,0,0,0);
+  }
+  mwl-gauge > .gauge > .value-text {
+    fill: rgb(47, 227, 255);
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 0.8em;
+  }
+  /* ------- Alternate Style ------- */
+  mwl-gauge.fertilizer-gauge {
+  }
+  mwl-gauge.fertilizer-gauge > .gauge > .dial {
+    stroke: #eee;
+    stroke-width: 10;
+  }
+  mwl-gauge.fertilizer-gauge > .gauge > .value {
+    stroke: orange;
+    stroke-dasharray: none;
+    stroke-width: 13;
+  }
+  mwl-gauge.fertilizer-gauge > .gauge > .value-text {
+    fill: orange;
+  }
+
+
+  /* ------- Alternate Style ------- */
+  mwl-gauge.power {
+  }
+  mwl-gauge.power > .gauge > .dial {
+    stroke: #eee;
+    stroke-width: 2;
+  }
+  mwl-gauge.power > .gauge > .value {
+    stroke: #ff4d4d;
+    stroke-width: 5;
+  }
+  mwl-gauge.power > .gauge > .value-text {
+    fill: #ff4d4d;
+  }
+
+
+  /* ----- Alternate Style ----- */
+  mwl-gauge.four > .gauge > .dial {
+    stroke: #334455;
+    stroke-width: 5;
+  }
+  mwl-gauge.four > .gauge > .value {
+    stroke: #BE80FF;
+    stroke-dasharray: none;
+    stroke-width: 5;
+  }
+  mwl-gauge.four > .gauge > .value-text {
+    fill: #BE80FF;
+  }
+  /* ----- Alternate Style ----- */
+  mwl-gauge.flow-meter > .gauge > .dial {
+    stroke: #969993;
+    stroke-dasharray: 10 1;
+    stroke-width: 7;
+  }
+  mwl-gauge.flow-meter > .gauge > .value {
+    stroke: #d9ff03;
+    stroke-dasharray: 10 1;
+    stroke-width: 5;
+  }
+  mwl-gauge.flow-meter > .gauge > .value-text {
+    fill: #d9ff03;
+    font-size: 0.7em;
+  }
+  /* ----- Alternate Style ----- */
+  mwl-gauge.six > .gauge > .dial {
+    stroke: #334455;
+    fill: #334455;
+    stroke-width: 20;
+  }
+  mwl-gauge.six > .gauge > .value {
+    stroke: #FF6DAF;
+    stroke-width: 20;
+  }
+  mwl-gauge.six > .gauge > .value-text {
+    fill: #FF6DAF;
+    font-size: 0.7em;
+  }
+  mwl-gauge.seven > .gauge > .dial {
+    stroke: transparent;
+    stroke-width: 5;
+    transform: scale(0.9,0.9) translate3d(5.5px, 5.5px, 0);
+    fill: rgba(148, 112, 57, 0.42);
+  }
+  mwl-gauge.seven > .gauge > .value {
+    stroke: #F8774B;
+    stroke-dasharray: none;
+    stroke-width: 5;
+  }
+

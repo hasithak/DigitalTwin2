@@ -131,6 +131,17 @@
   padding: 2px 25px;
   margin: 2px;
 }
+.pump {
+  width: 7vw;
+}
+
+.pump-line {
+  position: absolute;
+  z-index: 1;
+  background-color: #d9ff03;
+  display: block;
+  width: 100%;
+}
 
 mwl-gauge {
     flex: 1;

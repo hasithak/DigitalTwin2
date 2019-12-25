@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-pump-line',
@@ -13,8 +13,8 @@ export class PumpLineComponent implements OnInit, AfterViewInit {
   pumpLineStart = 0;
   pumpLineEnd = 200;
 
-  fertInputStart = 200;
-  fertLineHeight = 100;
+  @Input() fertInputStart;
+  @Input() fertLineHeight;
 
   pumpLineWidth = 15;
 
@@ -41,6 +41,9 @@ export class PumpLineComponent implements OnInit, AfterViewInit {
   getViewDimentions() {
     this.viewWidth = this.waterContainer.nativeElement.offsetWidth;
     this.viewHeight = this.waterContainer.nativeElement.offsetHeight;
+
+    console.log('this.fertLineHeight', this.fertLineHeight);
+    
   }
 
   drawPumpView() {

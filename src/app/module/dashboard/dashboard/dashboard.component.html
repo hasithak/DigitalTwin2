@@ -1,12 +1,14 @@
-<div class="pump-line" [ngStyle]="{'top.px':fieldBottom.offsetTop+35, 'left.px': waterPump.offsetLeft + waterPump.width }" >
-    <app-pump-line></app-pump-line>
+<div class="pump-line" *ngIf="showPumpLine"
+    [ngStyle]="{'top.px':waterPumpRow.offsetTop + 38, 'left.px': waterPump.offsetLeft + waterPump.width, 'width.px': leftPaneWidth + fieldBottomContentWidth - waterPumpWidth }">
+    <app-pump-line [fertLineHeight]="waterPumpContainerHeight - fertPumpHeight"
+        [fertInputStart]="(rightPaneWidth - waterPumpWidth)/2"></app-pump-line>
 </div>
 <div class="row">
-    <div class="col">
+    <div class="col" #leftPane>
         <div class="row gauge-list">
             <div class="col-3 text-center">
                 <p class="text-center mb-0 d-inline border-bottom border-danger rounded-bottom-lg main-gauge-title">
-                    POWER{{waterPump.offsetLeft}}</p>
+                    POWER</p>
                 <div class="gauge-container">
                     <mwl-gauge class="power" [max]="100" [value]="60" [animated]="true" [animationDuration]="1">
                     </mwl-gauge>
@@ -49,17 +51,18 @@
             </div>
         </div>
         <div class="row pertilizer-unit">
-            <div class="col-4 position-relative">
-                <img alt="pump" class="pump" #waterPump src="/assets/pump_img.png" >
-                    <ul class="position-absolute water-pump-reading" >
-                        <li>221 V</li>
-                        <li>7.8 A</li>
-                        <li>56 C</li>
-                    </ul>
+            <div class="col-4 position-relative" #waterPumpRow>
+                <img alt="pump" class="pump" #waterPump src="/assets/pump_img.png">
+                <ul class="position-absolute water-pump-reading">
+                    <li>221 V</li>
+                    <li>7.8 A</li>
+                    <li>56 C</li>
+                </ul>
             </div>
-            <div class="col position-relative">
-                <app-fertilizer-system class="position-absolute fert-unit-container" fertLevels="50,100,0,80"
-                    fertPumpStatuses="1,0,0,1"></app-fertilizer-system>
+            <div #fertPumpContainer class="col position-relative">
+                <div #fertPump class="position-absolute fert-unit-container">
+                    <app-fertilizer-system fertLevels="50,100,0,80" fertPumpStatuses="1,0,0,1"></app-fertilizer-system>
+                </div>
             </div>
         </div>
         <div class="row pertilizer-data">
@@ -149,51 +152,64 @@
             </div>
         </div>
     </div>
-    <div class="col m-3">
+    <div class="col" #rightPane>
         <div class="row crop-filed">
-            <div class="col filed-box d-flex justify-content-center border border-primary border-bottom-0 rounded-lg">
-                <img src="/assets/tree_top.png" alt="" class="align-self-end tree-top" />
-                <span class="field-stats">
-                    <ul>
-                        <li>29.5'c</li>
-                        <li>95% PH</li>
-                        <li>34.3 kmph</li>
-                    </ul>
-                </span>
-                <img class="weather-icon" alt="" src="/assets/weather_cloudy.png" />
-            </div>
-        </div>
-        <div class="row crop-filed-nav" #fieldBottom>
             <div class="col">
-                <div class="row"  >
-                    <div class="col d-flex justify-content-center border border-primary  border-top-0 rounded-bottom-lg"
-                        style="background-color: #b0855f;">
-                        <img src="/assets/tree_root.png" alt="" class="align-self-start tree-bottom" />
-                        <span class="filed-progress">
-                            <ul>
-                                <li>Last 2d 11h</li>
-                                <li>Next 2d 04h</li>
-                            </ul>
-                        </span>
-                        <span class="field-soil-stats">
+                <div class="d-block h-100" style="width: 97%;">
+                    <div
+                        class="filed-box d-flex justify-content-center border border-primary border-bottom-0 rounded-lg mt-1 ml-2 mr-1 h-100">
+                        <img src="/assets/tree_top.png" alt="" class="align-self-end tree-top" />
+                        <span class="field-stats">
                             <ul>
                                 <li>29.5'c</li>
                                 <li>95% PH</li>
                                 <li>34.3 kmph</li>
                             </ul>
                         </span>
+                        <img class="weather-icon" alt="" src="/assets/weather_cloudy.png" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row crop-filed-nav" #fieldBottom>
+            <div class="col">
+                <div class="row">
+                    <div class="col ">
+                        <div class="d-block" style="width: 97%;" #fieldBottomContent>
+                            <div class="d-flex justify-content-center border border-primary  border-top-0 rounded-bottom-lg  ml-2 mr-1"
+                                style="background-color: #b0855f;position: relative;">
+                                <img src="/assets/tree_root.png" alt="" class="align-self-start tree-bottom" />
+                                <span class="filed-progress">
+                                    <ul>
+                                        <li>Last 2d 11h</li>
+                                        <li>Next 2d 04h</li>
+                                    </ul>
+                                </span>
+                                <span class="field-soil-stats">
+                                    <ul>
+                                        <li>29.5'c</li>
+                                        <li>95% PH</li>
+                                        <li>34.3 kmph</li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                        <div class="d-flex align-items-stretch flex-row justify-content-between field-nav">
-                            <div class="nav-previouse"> <span class="oi oi-caret-left"></span></div>
-                            <div><span>PLOT #</span>&nbsp;&nbsp;<span class="plot-no">03</span></div>
-                            <div class="d-flex align-items-end flex-column">
-                                <span class="crop-type">Pineapple</span>
-                                <span>36/59</span>
+                        <div class="d-block" style="width: 97%;">
+                            <div class="border border-primary rounded ml-2 mr-1 mt-2 pl-2 pr-2">
+                                <div class="d-flex align-items-stretch flex-row justify-content-between field-nav">
+                                    <div class="nav-previouse"> <span class="oi oi-caret-left"></span></div>
+                                    <div><span>PLOT #</span>&nbsp;&nbsp;<span class="plot-no">03</span></div>
+                                    <div class="d-flex align-items-end flex-column">
+                                        <span class="crop-type">Pineapple</span>
+                                        <span>36/59</span>
+                                    </div>
+                                    <div class="nav-next"><span class="oi oi-caret-right"></span></div>
+                                </div>
                             </div>
-                            <div class="nav-next"><span class="oi oi-caret-right"></span></div>
                         </div>
                     </div>
                 </div>
@@ -202,21 +218,23 @@
         <div class="row prgress-charts">
             <div class="col">
                 <div class="row">
-                    <div class="col d-flex">
+                    <div class="col d-flex justify-content-center">
                         <div class="d-flex align-self-center align-items-center flex-column">
                             <span>FERTIGATTION</span>
                             <span>2000L</span>
                         </div>
                     </div>
-                    <div class="col d-flex">
+                    <div class="col d-flex justify-content-center align-items-center">
                         <canvas style="width: inherit;height: inherit;" baseChart [data]="pieChartData"
                             [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
-                            [plugins]="pieChartPlugins" [colors]="pieChartColors" [legend]="pieChartLegend">
+                            [plugins]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
                         </canvas>
                     </div>
-                    <div class="col gauge-container">
+                    <div class="col gauge-container d-flex justify-content-center align-items-center">
+                       <div style="width: 70%;" >
                         <mwl-gauge class="power" [max]="100" [value]="60" [animated]="true" [animationDuration]="1">
                         </mwl-gauge>
+                    </div>
                     </div>
                 </div>
             </div>

@@ -65,7 +65,7 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
 
     this.outputPumpY = 0;
     this.outputPumpX = this.viewWidth / 2;
-    this.outputPumpHeight = 30;
+    this.outputPumpHeight = 0;
 
     this.fertTankWidth = this.viewWidth / 8;
     this.fertTankHeight = 160;

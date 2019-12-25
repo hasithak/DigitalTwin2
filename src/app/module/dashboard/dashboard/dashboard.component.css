@@ -104,6 +104,9 @@
   margin-bottom: 0;
   color: #d9ff03;
 }
+.fert-level-text {
+  font-size: 2vmin;
+}
 .water-pump-reading li {
   border: 1px solid #f8774b;
   padding: 2px 25px;

@@ -1,6 +1,7 @@
-.app-nav {
-  height: 7vh;
+nav {
   border-bottom: 2px solid rosybrown;
+  padding: 0 0.1rem;
+  margin-bottom: 0.5rem;
 }
 .breadcrum {
   width: 60px;
@@ -20,4 +21,7 @@
 }
 .time-clock {
   font-family: digital-clock-font;
+}
+.dropdown-toggle::after {
+  content: none;
 }

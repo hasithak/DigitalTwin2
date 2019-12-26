@@ -1,6 +1,6 @@
-.app-nav{
-    height: 5vh;
-    border-bottom: 1px solid rosybrown;
+.app-nav {
+    height: 7vh;
+    border-bottom: 2px solid rosybrown;
 }
 
 .breadcrum {
@@ -17,4 +17,13 @@ color: white;
 
 .time a {
     color: white;
+}
+
+.nav-dropdown-menu {
+    font-size: 3vmin;
+    color: coral;
+}
+
+.time-clock {
+    font-family: digital-clock-font;
 }

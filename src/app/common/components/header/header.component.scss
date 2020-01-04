@@ -26,6 +26,11 @@ color: white;
     color: coral;
 }
 
+.nav-dropdown-menu-date {
+    font-size: 3vmin;
+    color: coral;
+}
+
 .time-clock {
     font-family: digital-clock-font;
 }
@@ -33,3 +38,13 @@ color: white;
 .dropdown-toggle::after{
     content: none;
 }
+
+.clock-tick {
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
+  }

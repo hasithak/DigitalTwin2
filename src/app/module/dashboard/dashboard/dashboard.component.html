@@ -1,5 +1,5 @@
 <div class="pump-line" *ngIf="showPumpLine"
-    [ngStyle]="{'top.px':waterPumpRow.offsetTop + 38, 'left.px': waterPump.offsetLeft + waterPump.width, 'width.px': leftPaneWidth + fieldBottomContentWidth - waterPumpWidth }">
+    [ngStyle]="{'top.px':waterPumpRow.offsetTop + 50, 'left.px': waterPump.offsetLeft + waterPump.width, 'width.px': leftPaneWidth + fieldBottomContentWidth - waterPumpWidth }">
     <app-pump-line [fertLineHeight]="waterPumpContainerHeight - fertPumpHeight"
         [fertInputStart]="(rightPaneWidth - waterPumpWidth)/2"></app-pump-line>
 </div>
@@ -10,7 +10,8 @@
                 <p class="text-center mb-0 d-inline border-bottom border-danger rounded-bottom-lg main-gauge-title">
                     POWER</p>
                 <div class="gauge-container">
-                    <mwl-gauge class="power" [max]="100" [value]="60" [animated]="true" [animationDuration]="1">
+                    <mwl-gauge class="power" *ngIf="sensors" [max]="sensors.totalPower" [value]="sensors.currPower"
+                        [animated]="true" [animationDuration]="1">
                     </mwl-gauge>
                 </div>
                 <p class="text-center mb-0">
@@ -21,7 +22,8 @@
                 <p class="text-center mb-0 d-inline border-bottom border-info rounded-bottom-lg main-gauge-title">FLOW
                     RATE</p>
                 <div class="gauge-container">
-                    <mwl-gauge class="flow-meter" [max]="100" [value]="5" [animated]="true" [animationDuration]="1">
+                    <mwl-gauge class="flow-meter" *ngIf="sensors" [max]="sensors.maxFlowRate" [value]="sensors.flowRate"
+                        [animated]="true" [animationDuration]="1">
                     </mwl-gauge>
                 </div>
                 <p class="text-center mb-0">
@@ -32,7 +34,8 @@
                 <p class="text-center mb-0 d-inline border-bottom border-info rounded-bottom-lg main-gauge-title">
                     PRESSURE</p>
                 <div class="gauge-container">
-                    <mwl-gauge class="flow-meter" [max]="100" [value]="60" [animated]="true" [animationDuration]="1">
+                    <mwl-gauge class="flow-meter" *ngIf="sensors" [max]="sensors.maxPressure" [value]="sensors.pressure"
+                        [animated]="true" [animationDuration]="1">
                     </mwl-gauge>
                 </div>
                 <p class="text-center mb-0">
@@ -42,7 +45,8 @@
             <div class="col text-center">
                 <p class="text-center mb-0 d-inline border-bottom border-info rounded-bottom-lg main-gauge-title">EC</p>
                 <div class="gauge-container">
-                    <mwl-gauge class="flow-meter" [max]="100" [value]="80" [animated]="true" [animationDuration]="1">
+                    <mwl-gauge class="flow-meter" *ngIf="sensors" [max]="sensors.ph" [value]="sensors.ec"
+                        [animated]="true" [animationDuration]="1">
                     </mwl-gauge>
                 </div>
                 <p class="text-center mb-0">
@@ -53,10 +57,10 @@
         <div class="row pertilizer-unit">
             <div class="col-4 position-relative" #waterPumpRow>
                 <img alt="pump" class="pump" #waterPump src="./assets/pump_img.png">
-                <ul class="position-absolute water-pump-reading fert-level-text">
-                    <li>221 V</li>
-                    <li>7.8 A</li>
-                    <li>56 C</li>
+                <ul *ngIf="sensors" class="position-absolute water-pump-reading fert-level-text">
+                    <li>{{sensors.currVoltage}} V</li>
+                    <li>{{sensors.currLoad}} A</li>
+                    <li>{{weather.temp}} C</li>
                 </ul>
             </div>
             <div #fertPumpContainer class="col position-relative">
@@ -83,70 +87,73 @@
             <div class="col text-center fert-level-text">
                 <div>N</div>
                 <div class="fertilizer-data-gauge-container">
-                    <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0"
-                        [dialStartAngle]="-90" [dialEndAngle]="-90.001" [value]="60" [animated]="true"
+                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.NFullTankLevel"
+                        [value]="sensors.NCurrTankLevel" [dialStartAngle]="180" [dialEndAngle]="0"
+                        [dialStartAngle]="-90" [dialEndAngle]="-90.001" [animated]="true" [animationDuration]="1">
+                    </mwl-gauge>
+                </div>
+                <div>
+                    {{sensors.NRate}}
+                </div>
+                <div>
+                    {{sensors.NSchedule}}
+                </div>
+                <div>
+                    {{sensors.NUsed}}
+                </div>
+            </div>
+            <div class="col text-center fert-level-text">
+                <div>P</div>
+                <div class="fertilizer-data-gauge-container">
+                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.PFullTankLevel"
+                        [value]="sensors.PCurrTankLevel" [dialStartAngle]="180" [dialEndAngle]="0" [animated]="true"
                         [animationDuration]="1">
                     </mwl-gauge>
                 </div>
-                <div  >
-                    2.61
+                <div>
+                    {{sensors.PRate}}
                 </div>
                 <div>
-                    800
+                    {{sensors.PSchedule}}
                 </div>
                 <div>
-                    800
+                    {{sensors.PUsed}}
                 </div>
             </div>
             <div class="col text-center fert-level-text">
-                <div>N</div>
+                <div>K</div>
                 <div class="fertilizer-data-gauge-container">
-                    <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0"
-                        [value]="60" [animated]="true" [animationDuration]="1">
+                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.KFullTankLevel"
+                        [value]="sensors.KCurrTankLevel" [dialStartAngle]="180" [dialEndAngle]="0" [animated]="true"
+                        [animationDuration]="1">
                     </mwl-gauge>
                 </div>
                 <div>
-                    2.6
+                    {{sensors.KRate}}
                 </div>
                 <div>
-                    800
+                    {{sensors.KSchedule}}
                 </div>
                 <div>
-                    800
-                </div>
-            </div>
-            <div class="col text-center fert-level-text">
-                <div>N</div>
-                <div class="fertilizer-data-gauge-container">
-                    <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0"
-                        [value]="60" [animated]="true" [animationDuration]="1">
-                    </mwl-gauge>
-                </div>
-                <div>
-                    2.6
-                </div>
-                <div>
-                    800
-                </div>
-                <div>
-                    800
+                    {{sensors.KUsed}}
                 </div>
             </div>
             <div class="col  text-center fert-level-text">
-                <div>N</div>
+                <div>Y</div>
                 <div class="fertilizer-data-gauge-container">
-                    <mwl-gauge class="fertilizer-gauge" [max]="100" [dialStartAngle]="180" [dialEndAngle]="0"
-                        [value]="60" [animated]="true" [animationDuration]="1">
+                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.YFullTankLevel"
+                        [value]="sensors.YCurrTankLevel" [dialStartAngle]="180" [dialEndAngle]="0" [animated]="true"
+                        [animationDuration]="1">
                     </mwl-gauge>
                 </div>
                 <div>
-                    2.6
+                    {{sensors.YRate}}
                 </div>
                 <div>
-                    800
+                    {{sensors.YSchedule}}
                 </div>
                 <div>
-                    800
+                    {{sensors.YUsed}}
                 </div>
             </div>
         </div>
@@ -160,12 +167,13 @@
                         <img src="./assets/tree_top.png" alt="" class="align-self-end tree-top" />
                         <span class="field-stats">
                             <ul>
-                                <li>29.5'c</li>
-                                <li>95% PH</li>
-                                <li>34.3 kmph</li>
+                                <li>{{weather.temp}}c</li>
+                                <li>{{ (sensors.ec / sensors.ph) * 100 }} % PH</li>
+                                <li>{{weather.wind}} kmph</li>
                             </ul>
                         </span>
-                        <img class="weather-icon" alt="" src="./assets/weather_cloudy.png" />
+                        <img class="weather-icon" alt=""
+                            src="https://developer.accuweather.com/sites/default/files/12-s.png" />
                     </div>
                 </div>
             </div>
@@ -201,10 +209,11 @@
                             <div class="border border-primary rounded ml-2 mr-1 mt-2 pl-2 pr-2">
                                 <div class="d-flex align-items-stretch flex-row justify-content-between field-nav">
                                     <div class="nav-previouse"> <span class="oi oi-caret-left"></span></div>
-                                    <div><span>PLOT #</span>&nbsp;&nbsp;<span class="plot-no">03</span></div>
+                                    <div><span>PLOT #</span>&nbsp;&nbsp;<span class="plot-no">{{field.fieldId}}</span>
+                                    </div>
                                     <div class="d-flex align-items-end flex-column">
-                                        <span class="crop-type">Pineapple</span>
-                                        <span>36/59</span>
+                                        <span class="crop-type">{{field.crop}}</span>
+                                        <span>{{field.numOfPlant}}/{{field.aria}}</span>
                                     </div>
                                     <div class="nav-next"><span class="oi oi-caret-right"></span></div>
                                 </div>
@@ -230,10 +239,10 @@
                         </canvas>
                     </div>
                     <div class="col gauge-container d-flex justify-content-center align-items-center">
-                       <div style="width: 70%;" >
-                        <mwl-gauge class="power" [max]="100" [value]="60" [animated]="true" [animationDuration]="1">
-                        </mwl-gauge>
-                    </div>
+                        <div style="width: 70%;">
+                            <mwl-gauge class="power" [max]="100" [value]="60" [animated]="true" [animationDuration]="1">
+                            </mwl-gauge>
+                        </div>
                     </div>
                 </div>
             </div>

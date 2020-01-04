@@ -8,6 +8,7 @@ import { AppCommonModule } from './common/app-common/app-common.module';
 import { GaugeModule } from 'angular-gauge';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ChartsModule } from 'ng2-charts';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { ChartsModule } from 'ng2-charts';
     BrowserModule,
     AppRoutingModule,
     AppCommonModule,
+    HttpClientModule,
     GaugeModule.forRoot(),
     BrowserAnimationsModule,
     ChartsModule 

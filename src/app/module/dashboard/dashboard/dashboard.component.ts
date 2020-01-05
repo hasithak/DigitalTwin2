@@ -23,7 +23,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChild('fertPumpContainer', { static: false }) fertPumpContainer: ElementRef;
   @ViewChild('fieldBottomContent', { static: false }) fieldBottomContent: ElementRef;
 
-  public pieChartOptions: ChartOptions = {
+  public pertPieCharOptions: ChartOptions = {
     responsive: true,
     legend: {
       position: 'bottom',
@@ -37,26 +37,12 @@ export class DashboardComponent implements OnInit, AfterViewInit {
       },
     }
   };
-  public pieChartLabels: Label[] = [['Download', 'Sales'], ['In', 'Store', 'Sales'], 'Mail Sales'];
-  public pieChartData: number[] = [300, 500, 100];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = false;
 
   public pieChartColors = [
     {
-      backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)', 'rgba(0,0,255,0.3)'],
+      backgroundColor: ['#fca7ae', '#a7adfc', '#a7fcb0', '#fce4a7'],
     },
   ];
-
-  gaugeValues: any = {
-    1: 100,
-    2: 50,
-    3: 50,
-    4: 50,
-    5: 50,
-    6: 50,
-    7: 50
-  };
 
   leftPaneWidth: number;
   rightPaneWidth: number;

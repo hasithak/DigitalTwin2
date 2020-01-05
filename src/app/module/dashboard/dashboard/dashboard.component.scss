@@ -144,6 +144,30 @@
   width: 100%;
 }
 
+.fert-legent {
+font-weight: bolder;
+  width: 70%; 
+  position: absolute; 
+  bottom: 0;
+}
+
+.fert-legent-n {
+  font-size: 1.2vmin;
+  background-color: #fca7ae;
+}
+.fert-legent-p {
+  font-size: 1.2vmin;
+  background-color: #a7adfc;
+}
+.fert-legent-k {
+  font-size: 1.2vmin;
+  background-color: #a7fcb0;
+}
+.fert-legent-y {
+  font-size: 1.2vmin;
+  background-color: #fce4a7;
+}
+
 mwl-gauge {
     flex: 1;
     display: block;
@@ -242,13 +266,13 @@ mwl-gauge {
     fill: #FF6DAF;
     font-size: 0.7em;
   }
-  mwl-gauge.seven > .gauge > .dial {
+  mwl-gauge.time > .gauge > .dial {
     stroke: transparent;
     stroke-width: 5;
     transform: scale(0.9,0.9) translate3d(5.5px, 5.5px, 0);
     fill: rgba(148, 112, 57, 0.42);
   }
-  mwl-gauge.seven > .gauge > .value {
+  mwl-gauge.time > .gauge > .value {
     stroke: #F8774B;
     stroke-dasharray: none;
     stroke-width: 5;

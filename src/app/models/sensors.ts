@@ -19,7 +19,7 @@ export class Sensors {
     YRate: number;
     NFullTankLevel: number;
     NCurrTankLevel: number;
-    PFullankLevel: number;
+    PFullTankLevel: number;
     PCurrTankLevel: number;
     KFullTankLevel: number;
     KCurrTankLevel: number;

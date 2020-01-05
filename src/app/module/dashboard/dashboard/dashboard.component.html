@@ -232,15 +232,21 @@
                             <span>2000L</span>
                         </div>
                     </div>
-                    <div class="col d-flex justify-content-center align-items-center">
-                        <canvas style="width: inherit;height: inherit;" baseChart [data]="pieChartData"
-                            [labels]="pieChartLabels" [chartType]="pieChartType" [options]="pieChartOptions"
-                            [plugins]="pieChartOptions" [colors]="pieChartColors" [legend]="pieChartLegend">
+                    <div class="col d-flex justify-content-center align-items-center" style="position: relative;">
+                        <canvas style="width: inherit;height: inherit;" baseChart [data]="[sensors.NSchedule, sensors.PSchedule, sensors.KSchedule, sensors.YSchedule]"
+                            [labels]="['N', 'P', 'K','Y']" [chartType]="'pie'" [options]="pertPieCharOptions"
+                            [plugins]="pertPieCharOptions" [colors]="pieChartColors" [legend]="false">
                         </canvas>
+                        <span  class="fert-legent d-flex flex-row justify-content-between">
+                            <span class="badge badge-pill fert-legent-n"  >N - {{sensors.NSchedule}}</span>
+                            <span class="badge badge-pill fert-legent-p" >P - {{sensors.PSchedule}}</span>
+                            <span class="badge badge-pill fert-legent-k" >K - {{sensors.KSchedule}}</span>
+                            <span class="badge badge-pill fert-legent-y" >Y - {{sensors.YSchedule}}</span>
+                        </span>
                     </div>
                     <div class="col gauge-container d-flex justify-content-center align-items-center">
                         <div style="width: 70%;">
-                            <mwl-gauge class="power" [max]="100" [value]="60" [animated]="true" [animationDuration]="1">
+                            <mwl-gauge class="time" [max]="100" [value]="60" [animated]="true" [animationDuration]="1">
                             </mwl-gauge>
                         </div>
                     </div>

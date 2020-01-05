@@ -1,5 +1,5 @@
 <div class="pump-line" *ngIf="showPumpLine && sensors.flowRate"
-    [ngStyle]="{'top.px':waterPumpRow.offsetTop + 50, 'left.px': waterPump.offsetLeft + waterPump.width, 'width.px': leftPaneWidth + fieldBottomContentWidth - waterPumpWidth }">
+    [ngStyle]="{'top.px':waterPumpRow.offsetTop + 65, 'left.px': waterPump.offsetLeft + waterPump.width, 'width.px': leftPaneWidth + fieldBottomContentWidth - waterPumpWidth }">
     <app-pump-line [fertLineHeight]="waterPumpContainerHeight - fertPumpHeight"
         [fertInputStart]="(rightPaneWidth - waterPumpWidth)/2" [pumping]="sensors.flowRate > 0" 
         [fertilizing]="sensors.NRate > 0 ||sensors.PRate > 0 ||sensors.KRate > 0 ||sensors.YRate">
@@ -56,8 +56,8 @@
                 </p>
             </div>
         </div>
-        <div class="row pertilizer-unit">
-            <div class="col-4 position-relative" #waterPumpRow>
+        <div class="row pertilizer-unit" #waterPumpRow >
+            <div class="col-4 position-relative" >
                 <img alt="pump" class="pump" #waterPump src="./assets/pump_img.png">
                 <ul *ngIf="sensors" class="position-absolute water-pump-reading fert-level-text">
                     <li>{{sensors.currVoltage}} V</li>
@@ -189,7 +189,7 @@
                         <div class="d-block" style="width: 97%;" #fieldBottomContent>
                             <div class="d-flex justify-content-center border border-primary  border-top-0 rounded-bottom-lg  ml-2 mr-1"
                                 style="background-color: #b0855f;position: relative;">
-                                <img src="./assets/tree_root.png" alt="" class="align-self-start tree-bottom" />
+                                <img src="./assets/tree_root.png" #treeRoot alt="" class="align-self-start tree-bottom" />
                                 <span class="filed-progress">
                                     <ul>
                                         <li>Last 2d 11h</li>

@@ -48,6 +48,8 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.fertPumpStatuses);
+    
     this.fertLevelsArray = this.fertLevels.split(',').map(Number);
     this.fertPumpStatusesArray = this.fertPumpStatuses.split(',').map(Number);
   }
@@ -111,13 +113,13 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
     newElement.setAttribute('y', y.toString());
 
     const newElement1 = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    newElement1.setAttribute('width', width.toString());
-    newElement1.setAttribute('height', height.toString());
+    newElement1.setAttribute('width', (width).toString());
+    newElement1.setAttribute('height', (height).toString());
     newElement1.setAttribute('x', '0');
     newElement1.setAttribute('y', '0');
-    newElement1.style.stroke = '#000';
-    newElement1.style.strokeWidth = '2px';
-    newElement1.style.fill = 'pink';
+    newElement1.style.stroke = '#fff';
+    newElement1.style.strokeWidth = '3px';
+    newElement1.style.fill = '#4d4a45';
     newElement.append(newElement1);
 
 
@@ -129,11 +131,11 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
     for (let i = 0; i < numOfLevelBars; i++) {
       const fertLevelBar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
 
-      fertLevelBar.setAttribute('width', width.toString());
+      fertLevelBar.setAttribute('width', (width - 8).toString());
       fertLevelBar.setAttribute('height', this.pumpLineWidth.toString());
-      fertLevelBar.setAttribute('x', '0');
+      fertLevelBar.setAttribute('x', '4');
       fertLevelBar.setAttribute('y', (height - (i * this.pumpLineWidth * 2) - this.pumpLineWidth * 2).toString());
-
+      fertLevelBar.style.fill = '#ff0000';
       newElement.append(fertLevelBar);
     }
 
@@ -152,9 +154,9 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
     newElement1.setAttribute('height', height.toString());
     newElement1.setAttribute('x', '0');
     newElement1.setAttribute('y', '0');
-    newElement1.style.stroke = 'yellow';
-    newElement1.style.strokeWidth = '2px';
-    newElement1.style.fill = 'pink';
+    newElement1.style.stroke = '#fff';
+    newElement1.style.strokeWidth = '4px';
+    newElement1.style.fill = 'orange';
     newElement.append(newElement1);
 
     this.svg.appendChild(newElement);
@@ -204,12 +206,6 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
         this.pumpFertilizer(i, pumpPath, status);
       }
     }
-
-    if (pumping) {
-      const pumpPath = this.drawPumpLine(this.outputPumpLine, 0, 'none');
-      this.pumpFertilizer(1000, pumpPath, 1);
-    }
-
   }
 
   pumpFertilizer(index: number, pumpPath: any, status: number) {
@@ -218,19 +214,19 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
       const numOfPoints = curveLength / 30;
 
       let counter = 0;
-      const dropSize = (this.pumpLineWidth - 2).toString();
+      const dropSize = (this.pumpLineWidth - 4).toString();
       for (let i = 0; i < numOfPoints; i++) {
         const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
         rect.setAttribute('width', dropSize);
         rect.setAttribute('height', dropSize);
-        rect.setAttribute('class', 'drop' + index);
+        rect.setAttribute('class', 'drop_' + index);
         rect.style.fill = 'blue';
         this.svg.appendChild(rect);
         counter += 50;
       }
 
       let shift = 0;
-      const drops = document.getElementsByClassName('drop' + index);
+      const drops = document.getElementsByClassName('drop_' + index);
 
       function moveDrops() {
 

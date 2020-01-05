@@ -18,8 +18,8 @@ export class PumpLineComponent implements OnInit, AfterViewInit {
 
   pumpLineWidth = 15;
 
-  pumping = true;
-  fertilizing = true;
+  @Input() pumping = false;
+  @Input() fertilizing = false;
 
 
   viewWidth: number;

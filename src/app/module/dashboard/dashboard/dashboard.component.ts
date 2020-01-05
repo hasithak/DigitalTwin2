@@ -76,17 +76,17 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     }, 1000);
   }
 
-getFieldDataRepeatedly(){
-  setInterval( ()=>{
-    this.getFiledData();
-  },2000);
-}
+  getFieldDataRepeatedly() {
+    setInterval(() => {
+      this.getFiledData();
+    }, 2000);
+  }
 
   getFiledData() {
     this.fieldService.getField('').subscribe(
       result => {
         console.log(result);
-        
+
         this.field = result.field;
         this.schedule = result.schedule;
         this.weather = result.weather;
@@ -107,6 +107,15 @@ getFieldDataRepeatedly(){
     this.waterPumpContainerHeight = this.fertPumpContainer.nativeElement.offsetHeight;
     this.fieldBottomContentWidth = this.fieldBottomContent.nativeElement.offsetWidth;
 
+  }
+
+  getFertFlowRates() {
+    const nFlowing = this.sensors.NRate > 0 ? '1' : '0';
+    const pFlowing = this.sensors.PRate > 0 ? '1' : '0';
+    const kFlowing = this.sensors.KRate > 0 ? '1' : '0';
+    const yFlowing = this.sensors.YRate > 0 ? '1' : '0';
+
+    return `${nFlowing},${pFlowing},${kFlowing},${yFlowing}`;
   }
 
 }

@@ -1,7 +1,9 @@
-<div class="pump-line" *ngIf="showPumpLine"
+<div class="pump-line" *ngIf="showPumpLine && sensors.flowRate"
     [ngStyle]="{'top.px':waterPumpRow.offsetTop + 50, 'left.px': waterPump.offsetLeft + waterPump.width, 'width.px': leftPaneWidth + fieldBottomContentWidth - waterPumpWidth }">
     <app-pump-line [fertLineHeight]="waterPumpContainerHeight - fertPumpHeight"
-        [fertInputStart]="(rightPaneWidth - waterPumpWidth)/2"></app-pump-line>
+        [fertInputStart]="(rightPaneWidth - waterPumpWidth)/2" [pumping]="sensors.flowRate > 0" 
+        [fertilizing]="sensors.NRate > 0 ||sensors.PRate > 0 ||sensors.KRate > 0 ||sensors.YRate">
+    </app-pump-line>
 </div>
 <div class="row">
     <div class="col" #leftPane>
@@ -65,7 +67,9 @@
             </div>
             <div #fertPumpContainer class="col position-relative">
                 <div #fertPump class="position-absolute fert-unit-container">
-                    <app-fertilizer-system fertLevels="50,100,0,80" fertPumpStatuses="1,0,0,1"></app-fertilizer-system>
+                    <app-fertilizer-system *ngIf="sensors.NCurrTankLevel"
+                        fertLevels="{{sensors.NCurrTankLevel+','+sensors.PCurrTankLevel+','+sensors.KCurrTankLevel+','+sensors.YCurrTankLevel}}"
+                        fertPumpStatuses="{{getFertFlowRates()}}"></app-fertilizer-system>
                 </div>
             </div>
         </div>
@@ -233,15 +237,16 @@
                         </div>
                     </div>
                     <div class="col d-flex justify-content-center align-items-center" style="position: relative;">
-                        <canvas style="width: inherit;height: inherit;" baseChart [data]="[sensors.NSchedule, sensors.PSchedule, sensors.KSchedule, sensors.YSchedule]"
+                        <canvas style="width: inherit;height: inherit;" baseChart
+                            [data]="[sensors.NSchedule, sensors.PSchedule, sensors.KSchedule, sensors.YSchedule]"
                             [labels]="['N', 'P', 'K','Y']" [chartType]="'pie'" [options]="pertPieCharOptions"
                             [plugins]="pertPieCharOptions" [colors]="pieChartColors" [legend]="false">
                         </canvas>
-                        <span  class="fert-legent d-flex flex-row justify-content-between">
-                            <span class="badge badge-pill fert-legent-n"  >N - {{sensors.NSchedule}}</span>
-                            <span class="badge badge-pill fert-legent-p" >P - {{sensors.PSchedule}}</span>
-                            <span class="badge badge-pill fert-legent-k" >K - {{sensors.KSchedule}}</span>
-                            <span class="badge badge-pill fert-legent-y" >Y - {{sensors.YSchedule}}</span>
+                        <span class="fert-legent d-flex flex-row justify-content-between">
+                            <span class="badge badge-pill fert-legent-n">N - {{sensors.NSchedule}}</span>
+                            <span class="badge badge-pill fert-legent-p">P - {{sensors.PSchedule}}</span>
+                            <span class="badge badge-pill fert-legent-k">K - {{sensors.KSchedule}}</span>
+                            <span class="badge badge-pill fert-legent-y">Y - {{sensors.YSchedule}}</span>
                         </span>
                     </div>
                     <div class="col gauge-container d-flex justify-content-center align-items-center">

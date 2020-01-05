@@ -41,9 +41,6 @@ export class PumpLineComponent implements OnInit, AfterViewInit {
   getViewDimentions() {
     this.viewWidth = this.waterContainer.nativeElement.offsetWidth;
     this.viewHeight = this.waterContainer.nativeElement.offsetHeight;
-
-    console.log('this.fertLineHeight', this.fertLineHeight);
-    
   }
 
   drawPumpView() {
@@ -51,8 +48,8 @@ export class PumpLineComponent implements OnInit, AfterViewInit {
     const outputPumpLine = this.drawPumpLine(this.mainPump, this.pumpLineWidth, 'cornflowerblue');
     this.svg.appendChild(outputPumpLine);
 
-    const outputPumpLineIn = this.drawPumpLine(this.mainPump, this.pumpLineWidth - 10, 'red');
-    this.svg.appendChild(outputPumpLineIn);
+    // const outputPumpLineIn = this.drawPumpLine(this.mainPump, this.pumpLineWidth - 10, 'red');
+    // this.svg.appendChild(outputPumpLineIn);
 
     this.fertPump = `M${this.fertInputStart},${this.fertLineHeight} 
     ${this.fertInputStart},${this.pumpLineWidth - (this.pumpLineWidth - (this.pumpLineWidth - 10)) / 2}`;
@@ -60,8 +57,8 @@ export class PumpLineComponent implements OnInit, AfterViewInit {
     this.svg.appendChild(fertPumpLine);
 
 
-    const fertPumpLineIn = this.drawPumpLine(this.fertPump, this.pumpLineWidth - 10, 'red');
-    this.svg.appendChild(fertPumpLineIn);
+    // const fertPumpLineIn = this.drawPumpLine(this.fertPump, this.pumpLineWidth - 10, 'red');
+    // this.svg.appendChild(fertPumpLineIn);
 
   }
 
@@ -94,13 +91,13 @@ export class PumpLineComponent implements OnInit, AfterViewInit {
     const numOfPoints = curveLength / 30;
 
     let counter = 0;
-    const dropSize = (this.pumpLineWidth - 2).toString();
+    const dropSize = (this.pumpLineWidth - 6).toString();
     for (let i = 0; i < numOfPoints; i++) {
       const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
       rect.setAttribute('width', dropSize);
       rect.setAttribute('height', dropSize);
       rect.setAttribute('class', 'drop' + index);
-      rect.style.fill = 'yellow';
+      rect.style.fill = 'blue';
       this.svg.appendChild(rect);
       counter += 50;
     }

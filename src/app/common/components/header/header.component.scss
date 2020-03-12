@@ -23,7 +23,8 @@ color: white;
 
 .nav-dropdown-menu {
     font-size: 3vmin;
-    color: coral;
+    color: #cbff4c;
+    font-weight: bold;
 }
 
 .nav-dropdown-menu-date {
@@ -33,6 +34,8 @@ color: white;
 
 .time-clock {
     font-family: digital-clock-font;
+    font-weight: bold;
+    padding-left: 60px;
 }
 
 .dropdown-toggle::after{

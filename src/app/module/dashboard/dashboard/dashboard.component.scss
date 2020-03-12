@@ -57,6 +57,7 @@
 .fertilizer-data-gauge-container{
     height: 36%;
     overflow: hidden;
+    color: red;
 }
 
 .crop-filed{
@@ -90,11 +91,13 @@
 .nav-previouse {
   font-size: 6vmin;
   color: #BE80FF;
+  cursor: pointer;
 }
 
 .nav-next {
   font-size: 6vmin;
   color: #BE80FF;
+  cursor: pointer;
 }
 
 .field-nav {
@@ -126,8 +129,14 @@
   color: #d9ff03;
 }
 .fert-level-text {
-  font-size: 2vmin;
+  font-size: 2.4vmin;
 }
+
+.gauge-level-title {
+  font-size: 2.4vmin;
+  color: #ffe005;
+}
+
 .water-pump-reading li {
   border: 1px solid #F8774B;
   padding: 2px 25px;
@@ -153,19 +162,23 @@
 
 .fert-legent-n {
   font-size: 1.2vmin;
-  background-color: #fca7ae;
+  background-color: #f8ff2b;
+  color: #000;
 }
 .fert-legent-p {
   font-size: 1.2vmin;
-  background-color: #a7adfc;
+  background-color: #f821ff;
+  color: #000;
 }
 .fert-legent-k {
   font-size: 1.2vmin;
-  background-color: #a7fcb0;
+  background-color: #0dff39;
+  color: #000;
 }
 .fert-legent-y {
   font-size: 1.2vmin;
-  background-color: #fce4a7;
+  background-color: #ff841f;
+  color: #000;
 }
 
 mwl-gauge {
@@ -199,7 +212,7 @@ mwl-gauge {
     stroke-width: 10;
   }
   mwl-gauge.fertilizer-gauge > .gauge > .value {
-    stroke: orange;
+    stroke: #ffe005;
     stroke-dasharray: none;
     stroke-width: 13;
   }

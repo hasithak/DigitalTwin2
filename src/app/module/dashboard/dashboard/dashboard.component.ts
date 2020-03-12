@@ -40,7 +40,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
 
   public pieChartColors = [
     {
-      backgroundColor: ['#fca7ae', '#a7adfc', '#a7fcb0', '#fce4a7'],
+      backgroundColor: ['#f8ff2b', '#f821ff', '#0dff39', '#ff841f'],
     },
   ];
 

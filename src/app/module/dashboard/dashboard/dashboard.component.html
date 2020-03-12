@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="row pertilizer-data">
-            <div class="col-4 text-right fert-level-text">
+            <div class="col-4 text-right gauge-level-title">
                 <div>&nbsp;</div>
                 <div class="fertilizer-data-gauge-container invisible">
                 </div>
@@ -169,12 +169,21 @@
                     <div
                         class="filed-box d-flex justify-content-center border border-primary border-bottom-0 rounded-lg mt-1 ml-2 mr-1 h-100">
                         <img src="./assets/tree_top.png" alt="" class="align-self-end tree-top" />
-                        <span class="field-stats">
-                            <ul>
-                                <li>{{weather.temp}}c</li>
-                                <li>{{ (sensors.ec / sensors.ph) * 100 }} % PH</li>
-                                <li>{{weather.wind}} kmph</li>
-                            </ul>
+                        <span class="field-stats d-block">
+                            <table>
+                                <tr>
+                                    <td>Temp</td>
+                                    <td>: {{weather.temp}}c</td>
+                                </tr>
+                                <tr>
+                                    <td>EC</td>
+                                    <td>: {{ (sensors.ec / sensors.ph) * 100 }} % PH</td>
+                                </tr>
+                                <tr>
+                                    <td>Wind</td>
+                                    <td>: {{weather.wind}} kmph</td>
+                                </tr>
+                            </table>
                         </span>
                         <img class="weather-icon" alt=""
                             src="https://developer.accuweather.com/sites/default/files/12-s.png" />
@@ -197,11 +206,16 @@
                                     </ul>
                                 </span>
                                 <span class="field-soil-stats">
-                                    <ul>
-                                        <li>29.5'c</li>
-                                        <li>95% PH</li>
-                                        <li>34.3 kmph</li>
-                                    </ul>
+                                    <table>
+                                        <tr>
+                                            <td>Temp</td>
+                                            <td>: {{weather.temp}}c</td>
+                                        </tr>
+                                        <tr>
+                                            <td>EC</td>
+                                            <td>: {{ (sensors.ec / sensors.ph) * 100 }} % PH</td>
+                                        </tr>
+                                    </table>
                                 </span>
                             </div>
                         </div>
@@ -231,8 +245,8 @@
             <div class="col">
                 <div class="row">
                     <div class="col d-flex justify-content-center">
-                        <div class="d-flex align-self-center align-items-center flex-column">
-                            <span>FERTIGATTION</span>
+                        <div class="d-flex align-self-center align-items-right flex-column">
+                            <span>Current fertigation cycle</span>
                             <span>2000L</span>
                         </div>
                     </div>

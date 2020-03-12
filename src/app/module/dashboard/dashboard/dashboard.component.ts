@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   @ViewChild('leftPane', { static: false }) leftPane: ElementRef;
   @ViewChild('rightPane', { static: false }) rightPane: ElementRef;
   @ViewChild('waterPump', { static: false }) waterPump: ElementRef;
+  @ViewChild('waterPumpRow', { static: false }) waterPumpRow: ElementRef;
   @ViewChild('fertPump', { static: false }) fertPump: ElementRef;
   @ViewChild('fertPumpContainer', { static: false }) fertPumpContainer: ElementRef;
   @ViewChild('fieldBottomContent', { static: false }) fieldBottomContent: ElementRef;
@@ -50,7 +51,9 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   fertPumpHeight: number;
   waterPumpContainerHeight: number;
   fieldBottomContentWidth: number;
-
+  waterPumpOffsetHeight: number;
+  headerHeight: number;
+  waterContainerHeight: number;
   showPumpLine = false;
 
 
@@ -102,11 +105,13 @@ export class DashboardComponent implements OnInit, AfterViewInit {
     this.leftPaneWidth = this.leftPane.nativeElement.offsetWidth;
     this.rightPaneWidth = this.rightPane.nativeElement.offsetWidth;
     this.waterPumpWidth = this.waterPump.nativeElement.offsetWidth;
+    this.waterPumpOffsetHeight = this.waterPumpRow.nativeElement.offsetTop;
     this.fertPumpHeight = this.fertPump.nativeElement.offsetHeight;
 
     this.waterPumpContainerHeight = this.fertPumpContainer.nativeElement.offsetHeight;
     this.fieldBottomContentWidth = this.fieldBottomContent.nativeElement.offsetWidth;
-
+    this.headerHeight = parseInt(sessionStorage.getItem('headerHeight'), 10);
+    this.waterContainerHeight = parseInt(sessionStorage.getItem('waterContainerHeight'), 10);
   }
 
   getFertFlowRates() {

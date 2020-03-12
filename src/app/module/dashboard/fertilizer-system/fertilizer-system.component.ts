@@ -91,6 +91,7 @@ export class FertilizerSystemComponent implements OnInit, AfterViewInit {
   getViewDimentions() {
     this.viewWidth = this.waterContainer.nativeElement.offsetWidth;
     this.viewHeight = this.waterContainer.nativeElement.offsetHeight;
+    sessionStorage.setItem('waterContainerHeight', this.viewHeight.toString());
   }
 
   drawPumpView() {

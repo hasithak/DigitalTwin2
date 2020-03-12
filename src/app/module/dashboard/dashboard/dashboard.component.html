@@ -1,9 +1,9 @@
 <div class="pump-line" *ngIf="showPumpLine && sensors.flowRate"
-    [ngStyle]="{'top.px':waterPumpRow.offsetTop + 65, 'left.px': waterPump.offsetLeft + waterPump.width, 'width.px': leftPaneWidth + fieldBottomContentWidth - waterPumpWidth }">
-    <app-pump-line [fertLineHeight]="waterPumpContainerHeight - fertPumpHeight"
+    [ngStyle]="{'top.px':waterPumpOffsetHeight+headerHeight+5, 'left.px': waterPump.offsetLeft + waterPump.width, 'width.px': leftPaneWidth + fieldBottomContentWidth - waterPumpWidth }">
+    <app-pump-line [fertLineHeight]="waterPumpContainerHeight - waterContainerHeight"
         [fertInputStart]="(rightPaneWidth - waterPumpWidth)/2" [pumping]="sensors.flowRate > 0" 
         [fertilizing]="sensors.NRate > 0 ||sensors.PRate > 0 ||sensors.KRate > 0 ||sensors.YRate">
-    </app-pump-line>
+    </app-pump-line> 
 </div>
 <div class="row">
     <div class="col" #leftPane>

@@ -6,6 +6,7 @@ import { Weather } from 'src/app/models/weather';
 import { Sensors } from 'src/app/models/sensors';
 import { FiledService } from 'src/app/services/filed.service';
 import { Field } from 'src/app/models/filed';
+import { Power } from 'src/app/models/power';
 
 
 @Component({
@@ -61,6 +62,7 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   schedule = new Schedule();
   weather = new Weather();
   sensors = new Sensors();
+  power = new Power();
 
   constructor(private fieldService: FiledService) { }
 
@@ -88,12 +90,11 @@ export class DashboardComponent implements OnInit, AfterViewInit {
   getFiledData() {
     this.fieldService.getField('').subscribe(
       result => {
-        console.log(result);
-
         this.field = result.field;
         this.schedule = result.schedule;
         this.weather = result.weather;
         this.sensors = result.sensors;
+        this.power = result.power;
       },
       (error) => {
 

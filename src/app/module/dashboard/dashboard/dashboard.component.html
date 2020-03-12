@@ -60,8 +60,8 @@
             <div class="col-4 position-relative" >
                 <img alt="pump" class="pump" #waterPump src="./assets/pump_img.png">
                 <ul *ngIf="sensors" class="position-absolute water-pump-reading fert-level-text">
-                    <li>{{sensors.currVoltage}} V</li>
-                    <li>{{sensors.currLoad}} A</li>
+                    <li>{{power.currVoltage}} V</li>
+                    <li>{{power.currLoad}} A</li>
                     <li>{{weather.temp}} C</li>
                 </ul>
             </div>

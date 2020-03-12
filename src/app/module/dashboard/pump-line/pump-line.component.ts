@@ -74,13 +74,13 @@ export class PumpLineComponent implements OnInit, AfterViewInit {
   }
 
   pumpFertilizers() {
+    const pumpPath = this.drawPumpLine(this.mainPump, 0, 'none');
     if (this.pumping) {
-      const pumpPath = this.drawPumpLine(this.mainPump, 0, 'none');
-      this.pumpFertilizer(1, pumpPath);
+     this.pumpFertilizer(1, pumpPath);
     }
 
+    const fertPump = this.drawPumpLine(this.fertPump, 0, 'none');
     if (this.fertilizing) {
-      const fertPump = this.drawPumpLine(this.fertPump, 0, 'none');
       this.pumpFertilizer(2, fertPump);
     }
 

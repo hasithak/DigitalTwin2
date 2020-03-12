@@ -30,4 +30,8 @@ export class Sensors {
     currPower: number;
     totalPower: number;
     monthPower: number;
+    NMaxRate:number;
+    PMaxRate:number;
+    KMaxRate:number;
+    YMaxRate:number
 }

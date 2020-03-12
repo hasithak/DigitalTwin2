@@ -85,14 +85,14 @@
                     Volume
                 </div>
                 <div>
-                    Fertilizer
+                    Concentration
                 </div>
             </div>
             <div class="col text-center fert-level-text">
                 <div>N</div>
                 <div class="fertilizer-data-gauge-container">
-                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.NFullTankLevel"
-                        [value]="sensors.NCurrTankLevel" [dialStartAngle]="180" [dialEndAngle]="0"
+                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.NMaxRate"
+                        [value]="sensors.NRate" [dialStartAngle]="180" [dialEndAngle]="0"
                         [dialStartAngle]="-90" [dialEndAngle]="-90.001" [animated]="true" [animationDuration]="1">
                     </mwl-gauge>
                 </div>
@@ -103,14 +103,14 @@
                     {{sensors.NSchedule}}
                 </div>
                 <div>
-                    {{sensors.NUsed}}
+                    0
                 </div>
             </div>
             <div class="col text-center fert-level-text">
                 <div>P</div>
                 <div class="fertilizer-data-gauge-container">
-                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.PFullTankLevel"
-                        [value]="sensors.PCurrTankLevel" [dialStartAngle]="180" [dialEndAngle]="0" [animated]="true"
+                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.PMaxRate"
+                        [value]="sensors.PRate" [dialStartAngle]="180" [dialEndAngle]="0" [animated]="true"
                         [animationDuration]="1">
                     </mwl-gauge>
                 </div>
@@ -121,14 +121,14 @@
                     {{sensors.PSchedule}}
                 </div>
                 <div>
-                    {{sensors.PUsed}}
+                    0
                 </div>
             </div>
             <div class="col text-center fert-level-text">
                 <div>K</div>
                 <div class="fertilizer-data-gauge-container">
-                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.KFullTankLevel"
-                        [value]="sensors.KCurrTankLevel" [dialStartAngle]="180" [dialEndAngle]="0" [animated]="true"
+                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.KMaxRate"
+                        [value]="sensors.KRate" [dialStartAngle]="180" [dialEndAngle]="0" [animated]="true"
                         [animationDuration]="1">
                     </mwl-gauge>
                 </div>
@@ -139,14 +139,14 @@
                     {{sensors.KSchedule}}
                 </div>
                 <div>
-                    {{sensors.KUsed}}
+                   0
                 </div>
             </div>
             <div class="col  text-center fert-level-text">
                 <div>Y</div>
                 <div class="fertilizer-data-gauge-container">
-                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.YFullTankLevel"
-                        [value]="sensors.YCurrTankLevel" [dialStartAngle]="180" [dialEndAngle]="0" [animated]="true"
+                    <mwl-gauge class="fertilizer-gauge" *ngIf="sensors" [max]="sensors.YMaxRate"
+                        [value]="sensors.YRate" [dialStartAngle]="180" [dialEndAngle]="0" [animated]="true"
                         [animationDuration]="1">
                     </mwl-gauge>
                 </div>
@@ -157,7 +157,7 @@
                     {{sensors.YSchedule}}
                 </div>
                 <div>
-                    {{sensors.YUsed}}
+                    0
                 </div>
             </div>
         </div>
